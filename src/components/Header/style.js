@@ -8,6 +8,13 @@ const StyledHeader = styled.header`
     gap: 20px;
     padding: 20px 0;
   }
+
+  @media screen and (min-width: 769px) {
+    > div {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
 `;
 
 export default StyledHeader;

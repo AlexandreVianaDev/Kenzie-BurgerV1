@@ -1,8 +1,7 @@
 import React from "react";
 import StyledProduct from "./style";
 
-
-export default function Product({ product, handleClick }) {
+const Product = ({ product, handleClick }) => {
   const { name, category, price, img, id } = product;
 
   return (
@@ -23,10 +22,13 @@ export default function Product({ product, handleClick }) {
           onClick={() => {
             handleClick(id);
           }}
-          className="button-green button-medium">
+          className="button-green button-medium"
+        >
           Adicionar
         </button>
       </div>
     </StyledProduct>
   );
-}
+};
+
+export default Product;

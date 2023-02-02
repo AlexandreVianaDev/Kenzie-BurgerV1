@@ -1,26 +1,32 @@
 import styled from "styled-components";
 
 const StyledMain = styled.main`
+  > div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media screen and (min-width: 769px) {
     > div {
-        display: flex;
-        flex-direction: column;
+      flex-direction: row;
+      /* justify-content: space-between; */
+      /* gap: 8px; */
     }
 
-    @media screen and (min-width: 769px){
-        > div {
-            flex-direction: row;
-            justify-content: space-between;
-            gap: 32px;
-        }
-
-        > div > .section__cards {
-            width: 65%;
-        }
-
-        > div > .section__cart {
-            /* width: 40%; */
-        }
+    > div > .section__cards {
+      width: 65%;
     }
-`
 
-export default StyledMain
+    > div > .section__cart {
+      width: 30%;
+    }
+  }
+
+  @media screen and (min-width: 900px) {
+    > div {
+      justify-content: space-between;
+    }
+  }
+`;
+
+export default StyledMain;

@@ -1,13 +1,13 @@
 import React from "react";
-import StyledCartProduct from "./style"
+import StyledCartProduct from "./style";
 
-export default function CartProduct({
+const CartProduct = ({
   sale,
   handleQuantitiyIncrease,
   handleQuantitiyDecrease,
   currentSale,
   setCurrentSale,
-}) {
+}) => {
   const { name, category, price, img, id, quantity } = sale;
 
   const removeProduct = (id) => {
@@ -37,7 +37,8 @@ export default function CartProduct({
               onClick={() => {
                 handleQuantitiyDecrease(id);
               }}
-            className="button-green">
+              className="button-green"
+            >
               -
             </button>
             <span className="heading-4">{quantity}</span>
@@ -45,7 +46,8 @@ export default function CartProduct({
               onClick={() => {
                 handleQuantitiyIncrease(id);
               }}
-              className="button-green">
+              className="button-green"
+            >
               +
             </button>
           </div>
@@ -53,12 +55,14 @@ export default function CartProduct({
             onClick={() => {
               removeProduct(id);
             }}
-          className="caption">
+            className="caption"
+          >
             Remover
           </button>
         </div>
       </div>
-
     </StyledCartProduct>
   );
-}
+};
+
+export default CartProduct;

@@ -1,25 +1,39 @@
 import React from "react";
 import StyledForm from "./style";
 
-export default function InputSearch({
+const InputSearch = ({
   showProducts,
   searchInput,
   setSearchInput,
-}) {
+  setSearching,
+  setFilteredProducts,
+  lastInput,
+  setLastInput,
+}) => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (searchInput.length > 0) {
+      showProducts(searchInput);
+      setLastInput(searchInput);
+      setSearching(true);
+    }
+  };
+
   return (
-    <StyledForm
-      onSubmit={(event) => {
-        event.preventDefault();
-        showProducts(searchInput);
-      }}
-    >
+    <StyledForm onSubmit={(event) => handleSubmit(event)}>
       <div>
         <input
           type="text"
-          onChange={(event) => setSearchInput(event.target.value)} placeholder="Digitar pesquisa"
+          value={searchInput}
+          onChange={(event) => setSearchInput(event.target.value)}
+          placeholder="Digitar pesquisa"
         />
-        <button type="submit" className="button-green button-medium">Pesquisar</button>
+        <button type="submit" className="button-green button-medium">
+          Pesquisar
+        </button>
       </div>
     </StyledForm>
   );
-}
+};
+
+export default InputSearch;

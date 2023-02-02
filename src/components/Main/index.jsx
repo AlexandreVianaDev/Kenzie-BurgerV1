@@ -1,10 +1,8 @@
-import React from 'react'
-import StyledMain from "./style"
+import React from "react";
+import StyledMain from "./style";
 
-export default function Main({children}) {
-  return (
-    <StyledMain>
-        {children}
-    </StyledMain>
-  )
-}
+const Main = ({ children }) => {
+  return <StyledMain>{children}</StyledMain>;
+};
+
+export default Main;

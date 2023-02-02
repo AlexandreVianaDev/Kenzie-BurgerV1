@@ -1,13 +1,13 @@
 import React from "react";
 import { useEffect } from "react";
-import StyledCartTotal from "./style"
+import StyledCartTotal from "./style";
 
-export default function CartTotal({
+const CartTotal = ({
   currentSale,
   setCurrentSale,
   cartTotal,
   setCartTotal,
-}) {
+}) => {
   const clearCart = () => {
     setCurrentSale([]);
   };
@@ -31,7 +31,11 @@ export default function CartTotal({
           })}
         </span>
       </div>
-      <button onClick={clearCart} className="button-grey button-default">Remover todos</button>
+      <button onClick={clearCart} className="button-grey button-default">
+        Remover todos
+      </button>
     </StyledCartTotal>
   );
-}
+};
+
+export default CartTotal;
