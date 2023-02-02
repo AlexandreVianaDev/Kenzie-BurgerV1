@@ -53,7 +53,7 @@ const GlobalStyle = createGlobalStyle`
   --font-family-1: 'Inter', sans-serif;
 }
 
-body {
+* {
     font-family: var(--font-family-1);
 }
 
