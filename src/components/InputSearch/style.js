@@ -25,6 +25,10 @@ const StyledForm = styled.form`
   button {
     margin-right: 8px;
   }
+
+  @media screen and (min-width: 769px) {
+    width: 365px;
+  }
 `;
 
 export default StyledForm;

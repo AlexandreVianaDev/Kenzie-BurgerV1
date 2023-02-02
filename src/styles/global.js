@@ -150,6 +150,10 @@ button, .body-600 {
     padding: 8px 16px;
 }
 
+.text-grey {
+    color: var(--color-grey-2);  
+}
+
 `;
 
 export default GlobalStyle;

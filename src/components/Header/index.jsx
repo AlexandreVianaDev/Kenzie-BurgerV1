@@ -1,9 +1,17 @@
 import React from "react";
 import InputSearch from "../InputSearch";
 import Logo from "../Logo";
-import StyledHeader from "./style.js"
+import StyledHeader from "./style.js";
 
-export default function Header({ showProducts, searchInput, setSearchInput }) {
+const Header = ({
+  showProducts,
+  searchInput,
+  setSearchInput,
+  setSearching,
+  setFilteredProducts,
+  lastInput,
+  setLastInput,
+}) => {
   return (
     <StyledHeader>
       <div className="container">
@@ -12,8 +20,14 @@ export default function Header({ showProducts, searchInput, setSearchInput }) {
           showProducts={showProducts}
           searchInput={searchInput}
           setSearchInput={setSearchInput}
+          setSearching={setSearching}
+          setFilteredProducts={setFilteredProducts}
+          lastInput={lastInput}
+          setLastInput={setLastInput}
         />
       </div>
     </StyledHeader>
   );
-}
+};
+
+export default Header;

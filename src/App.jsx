@@ -1,47 +1,54 @@
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
-import Main from "./components/Main"
+import Main from "./components/Main";
 import ProductsList from "./components/ProductsList";
 import Cart from "./components/Cart";
 import { api } from "./services/api";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-function App() {
-  const [productsAPI, setProductsAPI] = useState([]);
+const App = () => {
   const [products, setProducts] = useState([]);
+  const [productsAPI, setProductsAPI] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [currentSale, setCurrentSale] = useState([]);
   const [searchInput, setSearchInput] = useState("");
+  const [lastInput, setLastInput] = useState("");
   const [cartTotal, setCartTotal] = useState(0);
+  const [searching, setSearching] = useState(false);
 
   useEffect(() => {
     const getProduts = async () => {
       try {
-        // console.log("fiz requisição")
         const productsFromApi = await api.get("products");
         setProductsAPI(productsFromApi.data);
-        setProducts(productsFromApi.data);
+
+        searchInput
+          ? (showProducts(searchInput), setProducts(filteredProducts))
+          : setProducts(productsFromApi.data);
       } catch (error) {
-        console.log(error);
-      } finally {
-        // console.log("acabou")
-      }
+        toast.error(error);
+      } // finally {
+      //   console.log("acabou")
+      // }
     };
     getProduts();
-  }, []);
+  }, [lastInput]);
 
-  useEffect(() => {
-    setProducts(filteredProducts);
-  }, [filteredProducts]);
-
-  useEffect(() => {
-    if (products.length < 1) {
-    }
-  }, [products]);
+  // useEffect(() => {
+  //   setProducts(filteredProducts);
+  // }, [filteredProducts]);
 
   const showProducts = (inputValue) => {
+    setFilteredProducts([{ teste: "teste" }]);
+
     const filtered = productsAPI.filter((product) => {
-      return product.name.includes(inputValue);
+      return inputValue
+        ? product.name.toLowerCase().includes(inputValue.toLowerCase()) ||
+            product.category.toLowerCase().includes(inputValue.toLowerCase())
+        : true;
     });
+
     setFilteredProducts(filtered);
   };
 
@@ -73,7 +80,7 @@ function App() {
       newCart[index].quantity--;
       setCurrentSale(newCart);
       if (newCart[index].quantity < 1) {
-        const cartFiltred = newCart.filter(product => product.quantity > 0)
+        const cartFiltred = newCart.filter((product) => product.quantity > 0);
         setCurrentSale(cartFiltred);
       }
     } else {
@@ -83,10 +90,28 @@ function App() {
 
   return (
     <>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+      {/* Same as */}
+      <ToastContainer />
       <Header
         showProducts={showProducts}
         searchInput={searchInput}
         setSearchInput={setSearchInput}
+        setSearching={setSearching}
+        setFilteredProducts={setFilteredProducts}
+        lastInput={lastInput}
+        setLastInput={setLastInput}
       />
       <Main>
         <div className="container">
@@ -94,6 +119,13 @@ function App() {
             <ProductsList
               products={products}
               handleClick={handleClick}
+              searchInput={searchInput}
+              setSearchInput={setSearchInput}
+              searching={searching}
+              setSearching={setSearching}
+              showProducts={showProducts}
+              lastInput={lastInput}
+              setLastInput={setLastInput}
             ></ProductsList>
           </section>
           <section className="section__cart">
@@ -110,6 +142,6 @@ function App() {
       </Main>
     </>
   );
-}
+};
 
 export default App;
