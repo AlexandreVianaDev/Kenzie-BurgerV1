@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import logo from "./assets/logo.svg";
-import "./App.css";
 import Header from "./components/Header";
+import Main from "./components/Main"
 import ProductsList from "./components/ProductsList";
 import Cart from "./components/Cart";
 import { api } from "./services/api";
@@ -74,8 +73,8 @@ function App() {
       newCart[index].quantity--;
       setCurrentSale(newCart);
       if (newCart[index].quantity < 1) {
-        newCart.splice(index, 1);
-        setCurrentSale(newCart);
+        const cartFiltred = newCart.filter(product => product.quantity > 0)
+        setCurrentSale(cartFiltred);
       }
     } else {
       setCurrentSale(newCart);
@@ -89,24 +88,26 @@ function App() {
         searchInput={searchInput}
         setSearchInput={setSearchInput}
       />
-      <main>
-        <section>
-          <ProductsList
-            products={products}
-            handleClick={handleClick}
-          ></ProductsList>
-        </section>
-        <section>
-          <Cart
-            currentSale={currentSale}
-            setCurrentSale={setCurrentSale}
-            handleQuantitiyIncrease={handleQuantitiyIncrease}
-            handleQuantitiyDecrease={handleQuantitiyDecrease}
-            cartTotal={cartTotal}
-            setCartTotal={setCartTotal}
-          ></Cart>
-        </section>
-      </main>
+      <Main>
+        <div className="container">
+          <section className="section__cards">
+            <ProductsList
+              products={products}
+              handleClick={handleClick}
+            ></ProductsList>
+          </section>
+          <section className="section__cart">
+            <Cart
+              currentSale={currentSale}
+              setCurrentSale={setCurrentSale}
+              handleQuantitiyIncrease={handleQuantitiyIncrease}
+              handleQuantitiyDecrease={handleQuantitiyDecrease}
+              cartTotal={cartTotal}
+              setCartTotal={setCartTotal}
+            ></Cart>
+          </section>
+        </div>
+      </Main>
     </>
   );
 }

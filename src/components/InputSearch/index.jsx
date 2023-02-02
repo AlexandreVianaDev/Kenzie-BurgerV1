@@ -1,4 +1,5 @@
 import React from "react";
+import StyledForm from "./style";
 
 export default function InputSearch({
   showProducts,
@@ -6,17 +7,19 @@ export default function InputSearch({
   setSearchInput,
 }) {
   return (
-    <form
+    <StyledForm
       onSubmit={(event) => {
         event.preventDefault();
         showProducts(searchInput);
       }}
     >
-      <input
-        type="text"
-        onChange={(event) => setSearchInput(event.target.value)}
-      />
-      <button type="submit">Pesquisar</button>
-    </form>
+      <div>
+        <input
+          type="text"
+          onChange={(event) => setSearchInput(event.target.value)} placeholder="Digitar pesquisa"
+        />
+        <button type="submit" className="button-green button-medium">Pesquisar</button>
+      </div>
+    </StyledForm>
   );
 }

@@ -1,10 +1,11 @@
 import React from "react";
 import Product from "../Product";
 import { v4 as uuid } from "uuid";
+import StyledProductList from "./style";
 
 export default function ProductsList({ products, handleClick }) {
   return (
-    <ul>
+    <StyledProductList>
       {products.length > 0 ? (
         products.map((product) => {
           return (
@@ -18,6 +19,6 @@ export default function ProductsList({ products, handleClick }) {
       ) : (
         <li>Não foram encontrados resultados para a busca</li>
       )}
-    </ul>
+    </StyledProductList>
   );
 }
