@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import logo from "./assets/logo.svg";
-import "./App.css";
 import Header from "./components/Header";
 import ProductsList from "./components/ProductsList";
 import Cart from "./components/Cart";
@@ -74,8 +72,8 @@ function App() {
       newCart[index].quantity--;
       setCurrentSale(newCart);
       if (newCart[index].quantity < 1) {
-        newCart.splice(index, 1);
-        setCurrentSale(newCart);
+        const cartFiltred = newCart.filter(product => product.quantity > 0)
+        setCurrentSale(cartFiltred);
       }
     } else {
       setCurrentSale(newCart);

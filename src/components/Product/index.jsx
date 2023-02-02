@@ -12,7 +12,7 @@ export default function Product({ product, handleClick }) {
         <h2>{name}</h2>
         <span>{category}</span>
         <span>
-          {price.toLocaleString("pt-BR", {
+          {price?.toLocaleString("pt-BR", {
             style: "currency",
             currency: "BRL",
           })}
