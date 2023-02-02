@@ -32,18 +32,12 @@ const GlobalStyle = createGlobalStyle`
   --font-weight-2: 600;
   --font-weight-3: 400;
 
-  --line-heigth-1: 1.625rem; /* 26 pixels */
-  --line-heigth-2: 1.375rem; /* 22 pixels */
-  --line-heigth-3: 1.125rem; /* 18 pixels */
-  --line-heigth-4: 1rem; /* 16 pixels */
-  --line-heigth-5: 0.875rem; /* 14 pixels */
-  --line-heigth-6: 0.75rem; /* 12 pixels */
+  --line-heigth-1: 2.125rem; /* 34 pixels */
+  --line-heigth-2:1.5rem; /* 24 pixels */
+  --line-heigth-3: 1rem; /* 16 pixels */
 
-  --radius-1: 2px;
-  --radius-2: 4px;
-  --radius-3: 8px;
-  --radius-4: 16px;
-  --radius-5: 32px;
+  --radius-1: 5px;
+  --radius-2: 8px;
   --radius-100: 100%;
 
   --gap-1: 2rem; /* 32 pixels */
@@ -51,6 +45,7 @@ const GlobalStyle = createGlobalStyle`
   --gap-3: 1.5rem; /*  24 pixels */
   --gap-4: 1.25rem; /* 20 pixels */
   --gap-5: 1rem; /* 16 pixels */
+  --gap-6: 0.875rem; /* 14 pixels */
 
 
   --container-1: 1200px;
@@ -58,44 +53,101 @@ const GlobalStyle = createGlobalStyle`
   --font-family-1: 'Inter', sans-serif;
 }
 
+body {
+    font-family: var(--font-family-1);
+}
+
 img {
   max-width: 100%;
 }
 
 .container {
+  width: 90%;
   max-width: var(--container-1);
   margin: 0 auto;
 }
 
-body, button, input, textarea {
-  font-family: var(--font-family-1);
-  font-weight: var(--font-weight-3);
-  line-height: var(--line-heigth-4);
-}
-
-.title-1 {
+.heading-1 {
   font-size: var(--font-title-1);
   font-weight: var(--font-weight-1);
   line-height: var(--line-heigth-1);
 }
 
-.title-2 {
+.heading-2 {
   font-size: var(--font-title-2);
-  font-weight: var(--font-weight-2);
+  font-weight: var(--font-weight-1);
   line-height: var(--line-heigth-2);
 }
 
-.text-1 {
-  font-size: var(--font-text-1);
-  font-weight: var(--font-weight-3);
-  line-height: var(--line-heigth-4);
+.heading-3 {
+  font-size: var(--font-title-3);
+  font-weight: var(--font-weight-1);
+  line-height: var(--line-heigth-2);
 }
 
+.heading-4 {
+  font-size: var(--font-title-4);
+  font-weight: var(--font-weight-1);
+  line-height: var(--line-heigth-2);
+}
 
-.text-2 {
+input, textarea, .headline {
+    color: var(--color-grey-1);
+  font-size: var(--font-text-1);
+  font-weight: var(--font-weight-3);
+  line-height: var(--line-heigth-2);
+}
+
+body, .body {
+  color: var(--color-grey-1);
   font-size: var(--font-text-2);
-  font-weight: var(--font-weight-4);
-  line-height: var(--line-heigth-4);
+  font-weight: var(--font-weight-3);
+  line-height: var(--line-heigth-2);
+}
+
+button, .body-600 {
+  font-size: var(--font-text-2);
+  font-weight: var(--font-weight-2);
+  line-height: var(--line-heigth-2);
+  border-radius: var(--radius-2);
+}
+
+.caption {
+  font-size: var(--font-text-3);
+  font-weight: var(--font-weight-3);
+  line-height: var(--line-heigth-3);
+}
+
+.price {
+    color: var(--color-primary-1);
+    font-weight: var(--font-weight-2);
+}
+
+.button-green {
+    color: var(--color-white);
+    background-color: var(--color-primary-1);
+}
+
+.button-green:hover {
+    background-color: var(--color-primary-2);
+}
+
+.button-grey {
+    color: var(--color-grey-2);
+    background-color: var(--color-grey-3);
+}
+
+.button-grey:hover {
+    color: var(--color-grey-3);
+    background-color: var(--color-grey-2);
+}
+
+.button-default {
+    padding: 16px;
+}
+
+.button-medium {
+    padding: 8px 16px;
 }
 
 `;

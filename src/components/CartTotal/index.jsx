@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
+import StyledCartTotal from "./style"
 
 export default function CartTotal({
   currentSale,
@@ -20,17 +21,17 @@ export default function CartTotal({
   }, [currentSale]);
 
   return (
-    <div>
+    <StyledCartTotal>
       <div>
-        <span>Total:</span>
-        <span>
+        <span className="heading-4">Total:</span>
+        <span className="body-600">
           {cartTotal.toLocaleString("pt-BR", {
             style: "currency",
             currency: "BRL",
           })}
         </span>
       </div>
-      <button onClick={clearCart}>Remover todos</button>
-    </div>
+      <button onClick={clearCart} className="button-grey button-default">Remover todos</button>
+    </StyledCartTotal>
   );
 }

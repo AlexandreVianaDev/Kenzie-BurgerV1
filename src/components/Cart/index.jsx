@@ -2,6 +2,7 @@ import React from "react";
 import CartProduct from "../CartProduct";
 import CartTotal from "../CartTotal";
 import { v4 as uuid } from "uuid";
+import StyledCart from "./style";
 
 export default function Cart({
   currentSale,
@@ -12,8 +13,8 @@ export default function Cart({
   setCartTotal,
 }) {
   return (
-    <>
-      <h2>Carrinho de compras</h2>
+    <StyledCart>
+      <h2 className="heading-3">Carrinho de compras</h2>
       <ul>
         {currentSale.map((sale) => {
           return (
@@ -34,6 +35,6 @@ export default function Cart({
         cartTotal={cartTotal}
         setCartTotal={setCartTotal}
       ></CartTotal>
-    </>
+    </StyledCart>
   );
 }

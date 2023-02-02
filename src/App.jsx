@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
+import Main from "./components/Main"
 import ProductsList from "./components/ProductsList";
 import Cart from "./components/Cart";
 import { api } from "./services/api";
@@ -87,24 +88,26 @@ function App() {
         searchInput={searchInput}
         setSearchInput={setSearchInput}
       />
-      <main>
-        <section>
-          <ProductsList
-            products={products}
-            handleClick={handleClick}
-          ></ProductsList>
-        </section>
-        <section>
-          <Cart
-            currentSale={currentSale}
-            setCurrentSale={setCurrentSale}
-            handleQuantitiyIncrease={handleQuantitiyIncrease}
-            handleQuantitiyDecrease={handleQuantitiyDecrease}
-            cartTotal={cartTotal}
-            setCartTotal={setCartTotal}
-          ></Cart>
-        </section>
-      </main>
+      <Main>
+        <div className="container">
+          <section className="section__cards">
+            <ProductsList
+              products={products}
+              handleClick={handleClick}
+            ></ProductsList>
+          </section>
+          <section className="section__cart">
+            <Cart
+              currentSale={currentSale}
+              setCurrentSale={setCurrentSale}
+              handleQuantitiyIncrease={handleQuantitiyIncrease}
+              handleQuantitiyDecrease={handleQuantitiyDecrease}
+              cartTotal={cartTotal}
+              setCartTotal={setCartTotal}
+            ></Cart>
+          </section>
+        </div>
+      </Main>
     </>
   );
 }
