@@ -55,7 +55,7 @@ const CartProduct = ({
             onClick={() => {
               removeProduct(id);
             }}
-            className="caption"
+            className="caption button__remove"
           >
             Remover
           </button>

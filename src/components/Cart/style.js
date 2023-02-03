@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const StyledCart = styled.div`
   width: 100%;
+  background-color: var(--color-grey-4);
 
   > h2 {
     background-color: var(--color-primary-1);
@@ -15,19 +16,17 @@ const StyledCart = styled.div`
     flex-direction: column;
     gap: var(--gap-6);
     padding: 16px 4px;
-    background-color: var(--color-grey-4);
   }
   .cart--empty {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--color-grey-4);
     padding: 64px 0;
   }
 
   @media screen and (min-width: 769px) {
     /* width: 50%; */
-    padding: 16px 0;
+    padding: 32px 0;
     min-width: 250px;
     max-width: 350px;
   }

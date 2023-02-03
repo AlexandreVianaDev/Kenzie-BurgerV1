@@ -3,7 +3,7 @@ import styled from "styled-components";
 const StyledProductList = styled.ul`
   display: flex;
   gap: var(--gap-1);
-  padding: 16px 0;
+  padding: 32px 0;
   overflow-x: auto;
 
   .search__warning {
@@ -19,7 +19,8 @@ const StyledProductList = styled.ul`
 
   @media screen and (min-width: 1280px) {
     justify-content: space-between;
-    gap: var(--gap-4);
+    /* gap: var(--gap-4); */
+    gap: 8px;
   }
 `;
 
