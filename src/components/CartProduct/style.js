@@ -64,6 +64,12 @@ const StyledCartProduct = styled.li`
     /* font-weight: var(--font-weight-3); */
   }
 
+  .button__remove:hover {
+    color: var(--color-grey-1);
+    text-decoration: underline;
+    transition: 0.25s;
+  }
+
   @media screen and (min-width: 426px) {
     .product__info {
       width: 75%;

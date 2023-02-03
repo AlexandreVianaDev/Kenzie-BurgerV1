@@ -11,6 +11,11 @@ const StyledProduct = styled.li`
   min-height: 375px;
   max-height: 375px;
 
+  :hover {
+    transition: 0.5s;
+    scale: 1.1;
+  }
+
   figure {
     display: flex;
     flex-direction: column;
@@ -44,8 +49,8 @@ const StyledProduct = styled.li`
   }
 
   @media screen and (min-width: 1280px) {
-    min-width: 235px;
-    max-width: 235px;
+    min-width: 245px;
+    max-width: 245px;
   }
 `;
 

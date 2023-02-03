@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const StyledHeader = styled.header`
+  background-color: var(--color-grey-4);
   > div {
     display: flex;
     flex-direction: column;
