@@ -6,6 +6,7 @@ const StyledProduct = styled.li`
   justify-content: space-between;
   border: 2px solid var(--color-grey-3);
   border-radius: var(--radius-2);
+  background-color: var(--color-white);
   min-width: 225px;
   max-width: 225px;
   min-height: 375px;
