@@ -40,7 +40,6 @@ const App = () => {
   // }, [filteredProducts]);
 
   const showProducts = (inputValue) => {
-    setFilteredProducts([{ teste: "teste" }]);
 
     const filtered = productsAPI.filter((product) => {
       return inputValue

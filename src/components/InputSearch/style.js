@@ -13,7 +13,7 @@ const StyledForm = styled.form`
     padding: 8px 0;
   }
 
-  div:hover, div:focus {
+  div:hover, div:focus-within {
     border: 2px solid var(--color-grey-1);
     transition: 0.25s;
   }
