@@ -52,6 +52,7 @@ const StyledProduct = styled.li`
   @media screen and (min-width: 1280px) {
     min-width: 245px;
     max-width: 245px;
+    margin-bottom: 24px;
   }
 `;
 

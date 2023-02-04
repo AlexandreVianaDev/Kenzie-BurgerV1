@@ -27,6 +27,12 @@ const StyledMain = styled.main`
       justify-content: space-between;
     }
   }
+
+  @media screen and (min-width: 1280px) {
+    > div > .section__cards {
+      width: 67%;
+    }
+  }
 `;
 
 export default StyledMain;

@@ -21,6 +21,7 @@ const StyledProductList = styled.ul`
     justify-content: space-between;
     /* gap: var(--gap-4); */
     gap: 8px;
+    padding: 32px 16px;
   }
 `;
 
